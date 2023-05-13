@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
-const { model, Schema } = mongoose;
-const ToDoSchema = new Schema({
+
+const { Schema, model } = mongoose;
+
+const TodoSchema = new Schema({
   title: {
     type: String,
-    require: [true, "must provide course name"],
-    maxlength: [20, "Task must not be more than 20 characters"],
-  }
+    require: [true, "title is require!!"],
+    maxlength: [20, "your title should be 20 character"],
+  },
+  deadline: Date,
+  category: String,
 });
 
-module.exports = model("todo", ToDoSchema);
+module.exports = model("todos", TodoSchema);

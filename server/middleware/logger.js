@@ -1,5 +1,5 @@
 const logger = (req, res, next) => {
-  console.log("hello");
+  console.log(`the api has a new request.METHOD: ${req.method}, URL: ${req.url} `);
   next();
 };
 
