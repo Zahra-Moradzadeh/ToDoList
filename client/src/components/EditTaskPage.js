@@ -1,7 +1,7 @@
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { Button, Container, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { updateTaskData, getOneTaskData } from "../API/courseApi";
+import { updateTaskData, getOneTaskData } from "../API/todoApi";
 
 const EditTaskPage = () => {
   const params = useParams();
@@ -34,47 +34,59 @@ const EditTaskPage = () => {
 
   return (
     <>
-    <Container >
-      <h2 style={{margin:20, textAlign:"center"}}>Edit your task here :D </h2>
-      <h4 style={{marginBottom:30}}>details of your task with {params.title} slug</h4>
+      <Container>
+        <h2 style={{ margin: 20, textAlign: "center" }}>
+          Edit your task here :D{" "}
+        </h2>
+        <h4 style={{ marginBottom: 30 }}>
+          details of your task with {params.title} slug
+        </h4>
 
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formTitle">
-          <Form.Label>Title</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Course Title"
-            value={formData.title}
-            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-          />
-        </Form.Group>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formTitle">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Course Title"
+              value={formData.title}
+              onChange={(e) =>
+                setFormData({ ...formData, title: e.target.value })
+              }
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formAuthorId">
-          <Form.Label>DeadLine</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter deadline"
-            value={formData.deadline}
-            onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formAuthorId">
+            <Form.Label>DeadLine</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter deadline"
+              value={formData.deadline}
+              onChange={(e) =>
+                setFormData({ ...formData, deadline: e.target.value })
+              }
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formCategory">
-          <Form.Label>Category</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Course Category"
-            value={formData.category}
-            onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formCategory">
+            <Form.Label>Category</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Course Category"
+              value={formData.category}
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value })
+              }
+            />
+          </Form.Group>
 
-
-
-        <Button variant="dark" type="submit" style={{textAlign:"center", width:150}}>
-          Save
-        </Button>
-      </Form>
+          <Button
+            variant="dark"
+            type="submit"
+            style={{ textAlign: "center", width: 150 }}
+          >
+            Save
+          </Button>
+        </Form>
       </Container>
     </>
   );

@@ -1,6 +1,6 @@
 import { Table, Button } from "react-bootstrap";
-import {  useNavigate } from "react-router-dom";
-import { deleteTaskData } from "../API/courseApi";
+import { useNavigate } from "react-router-dom";
+import { deleteTaskData } from "../API/todoApi";
 
 const TaskList = ({ coursesData }) => {
   const navigate = useNavigate();
@@ -11,7 +11,13 @@ const TaskList = ({ coursesData }) => {
 
   return (
     <>
-      <Table striped bordered hover variant="light" style={{textAlign:"center"}}>
+      <Table
+        striped
+        bordered
+        hover
+        variant="light"
+        style={{ textAlign: "center" }}
+      >
         <thead>
           <tr>
             <th>Task</th>
@@ -23,22 +29,26 @@ const TaskList = ({ coursesData }) => {
         </thead>
         <tbody>
           {coursesData?.map((course) => {
-            const { _id, title, deadline , category} = course;
+            const { _id, title, deadline, category } = course;
             return (
               <tr key={_id}>
                 <td>{title}</td>
                 <td>{deadline}</td>
                 <td>{category}</td>
                 <td>
-                {/* <Link to={`/edit/${slug}`} state={course}>
+                  {/* <Link to={`/edit/${slug}`} state={course}>
                     Edit
                   </Link> */}
-                  <Button variant="success" type="submit"  >
+                  <Button variant="success" type="submit">
                     Edit
                   </Button>
                 </td>
                 <td>
-                  <Button variant="danger" type="submit" onClick={() => handleDelete(_id)}>
+                  <Button
+                    variant="danger"
+                    type="submit"
+                    onClick={() => handleDelete(_id)}
+                  >
                     Delete
                   </Button>
                 </td>
