@@ -43,7 +43,7 @@ const CreateTaskPage = () => {
           <Form.Group className="mb-3" controlId="formDeadline">
             <Form.Label>Deadline</Form.Label>
             <Form.Control
-              type="Date"
+              type="date"
               placeholder="Enter deadline of your task"
               value={formData.deadline}
               onChange={(e) =>

@@ -13,10 +13,9 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/template/" element={<Templates />}>
-        </Route>
+        <Route path="/template/" element={<Templates />}/>
         <Route path="/task" element={<TaskPage />} />
-        <Route path="/edit/:slug" element={<EditTaskPage />} />
+        <Route path="/edit/:title" element={<EditTaskPage />} />
         <Route path="/create-task" element={<CreateTaskPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

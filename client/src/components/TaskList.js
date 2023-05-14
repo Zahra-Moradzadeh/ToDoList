@@ -1,13 +1,16 @@
 import { Table, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { deleteTaskData } from "../API/todoApi";
+import { Link } from "react-router-dom";
 
-const TaskList = ({ coursesData }) => {
+const TaskList = ({ tasksData }) => {
   const navigate = useNavigate();
+  
   const handleDelete = (id) => {
     deleteTaskData(id);
     navigate(0);
   };
+
 
   return (
     <>
@@ -28,7 +31,7 @@ const TaskList = ({ coursesData }) => {
           </tr>
         </thead>
         <tbody>
-          {coursesData?.map((course) => {
+          {tasksData?.map((course) => {
             const { _id, title, deadline, category } = course;
             return (
               <tr key={_id}>
@@ -36,11 +39,10 @@ const TaskList = ({ coursesData }) => {
                 <td>{deadline}</td>
                 <td>{category}</td>
                 <td>
-                  {/* <Link to={`/edit/${slug}`} state={course}>
-                    Edit
-                  </Link> */}
                   <Button variant="success" type="submit">
+                  <Link to={`/edit/${title}`} state={course} style={{textDecorationLine:"none",color:"white"}}>
                     Edit
+                  </Link>
                   </Button>
                 </td>
                 <td>

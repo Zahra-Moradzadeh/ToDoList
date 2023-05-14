@@ -6,9 +6,9 @@ import { getAllTasksData } from "../API/todoApi";
 
 const TaskPage = () => {
   const navigate = useNavigate();
-  const [coursesData, setCoursesData] = useState(null);
+  const [tasksData, setTasksData] = useState(null);
   useEffect(() => {
-    getAllTasksData().then((data) => setCoursesData(data));
+    getAllTasksData().then((data) => setTasksData(data));
   }, []);
   return (
     <>
@@ -21,7 +21,7 @@ const TaskPage = () => {
         >
           Add New Task
         </Button>
-        <TaskList coursesData={coursesData} />
+        <TaskList tasksData={tasksData} />
       </Container>
     </>
   );
